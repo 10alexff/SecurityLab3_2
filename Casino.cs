@@ -32,8 +32,19 @@ namespace Lab3_2
 
             var newSeed = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
+            RandomMersenne m = new RandomMersenne((uint)newSeed);
+            for (int j = 0; j < 626; j++)
+            {
+                resultList.Add(m.Random());
+            }
 
+            Random random = new Random();
+            int count = random.Next(1, 625);
 
+            namber = resultList[count];
+            // знаходимо число через MersennerTwister
+            currentNamber = resultList[count + 1];
+            start = 1;
             return namber;
         }
 
